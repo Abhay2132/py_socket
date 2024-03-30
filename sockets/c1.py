@@ -1,13 +1,15 @@
 from Socket import ClientSocket
 from ui import APP
-from settings import HOST, PORT
+from settings import HOST, PORT, CLIENT
 
+addr = (CLIENT, PORT)
 class Client(APP):
     clientSocket = None
 
     def __init__(self):
         super().__init__("CLIENT", "Client")
-        self.clientSocket = ClientSocket(addr=(HOST, PORT))
+        print(f"Connecting to {addr}")
+        self.clientSocket = ClientSocket(addr)
         self.clientSocket.connect()
         self.clientSocket.on("data", self.receiveMessage)
     
