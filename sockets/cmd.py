@@ -15,3 +15,5 @@ try:
 except subprocess.CalledProcessError as e:
   # Handle errors if the command fails
   print(f"Error: {e}")
+
+out = subprocess.check_output("netsh interface show interface")

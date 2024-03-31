@@ -1,8 +1,8 @@
 from Socket import ClientSocket
 from ui import APP
-from settings import HOST, PORT, CLIENT
+from settings import PORT, getWIFI
 
-addr = (CLIENT, PORT)
+addr = (getWIFI(), PORT)
 class Client(APP):
     clientSocket = None
 

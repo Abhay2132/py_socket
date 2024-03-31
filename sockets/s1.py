@@ -1,14 +1,12 @@
 from Socket import ServerSocket
 from ui import APP
-from settings import HOST, PORT
+from settings import  PORT, getHOTSPOT
 
-addr = (HOST, PORT)
+addr = (getHOTSPOT(), PORT)
 
 class Server(APP):
 
     def __init__(self):
-        if HOST is None:
-            raise OSError("TURN ON HOTSPOT")
         super().__init__("SERVER", "Server")
         self.serverSocket = ServerSocket(addr)
         self.serverSocket.start()
